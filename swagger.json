@@ -1,0 +1,81 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Swagger Projet Node",
+      "description": "Project Express - Node JS  ",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API utilisateurs "
+      }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/topic/message": {
+          "post": {
+            "tags": ["Message"],
+            "description": "Envoyer un message",
+            "parameters": [
+              {
+                "name": "message",
+                "in": "body",
+                "description": "Message à envoyer",
+                "schema": {
+                    "$ref": "#/definitions/Message"
+                }
+              }
+            ],
+            "produces": ["application/json"],
+            "responses": {
+              "201": {
+                "description": "Nouvel utilisateur",
+                "schema": {
+                  "$ref": "#/definitions/Message"
+                }
+              }
+            }
+          }
+        },
+        "/topic/messages": {
+            "get": {
+              "tags": ["Message"],
+              "summary": "Liste des messages",
+              "responses": {
+                "200": {
+                  "description": "OK",
+                  "schema": {
+                    "$ref": "#/definitions/Messages"
+                  }
+                }
+              }
+            }
+          }
+    },
+    "definitions": {
+        "Message": {
+          "required": ["title", "message"],
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "message": {
+                "type": "string"
+            }
+          }
+        },
+        "Messages": {
+            "type": "array",
+            "$ref": "#/definitions/Message"
+        }
+      }
+}

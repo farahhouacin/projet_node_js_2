@@ -9,8 +9,8 @@ const authRoutes = require('./routes/auth');
 const app = express();
 
 // Import swagger
-//const swaggerUi = require('swagger-ui-express');
-//swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
 
 
 // Parse body
@@ -29,7 +29,7 @@ app.use('/topic', messageRoute);
 app.use('/auth', authRoutes);
 
 // Use swagger
-//app.use('/api-docs', swaggerUi.serve,  swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve,  swaggerUi.setup(swaggerDocument));
 
 
 mongoose.connect(
