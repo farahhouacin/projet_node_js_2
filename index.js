@@ -12,7 +12,6 @@ const app = express();
 const swaggerUi = require('swagger-ui-express');
 swaggerDocument = require('./swagger.json');
 
-
 // Parse body
 app.use(bodyParser.json());
 
@@ -30,7 +29,6 @@ app.use('/auth', authRoutes);
 
 // Use swagger
 app.use('/api-docs', swaggerUi.serve,  swaggerUi.setup(swaggerDocument));
-
 
 mongoose.connect(
         'mongodb+srv://farahhouacin:Chocobon13000@cluster0.2x92ait.mongodb.net/test'

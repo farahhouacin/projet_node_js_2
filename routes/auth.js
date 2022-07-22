@@ -26,7 +26,12 @@ router.put(
     body('name')
       .trim()
       .not()
+      .isEmpty(),
+    body('pseudo')
+      .trim()
+      .not()
       .isEmpty()
+  
   ],
   authController.signup
 );
